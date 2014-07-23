@@ -175,9 +175,9 @@ def find_file(files,suffix):
                 return f
         
 def main():
-    with codecs.open(DATA_DIR+'SCCL-classics-ebook-candidates.tsv','w',encoding='utf-8') as output:
+    with codecs.open(DATA_DIR+'initial_candidates.tsv','w',encoding='utf-8') as output:
         count = 0
-        for line in codecs.open(DATA_DIR+'SCCL-classics-edition-author-work.tsv', encoding='utf-8'):
+        for line in codecs.open(DATA_DIR+'openlib_result_list.tsv', encoding='utf-8'):
             count += 1
             if count == 1:
                 continue # skip header line

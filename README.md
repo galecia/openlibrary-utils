@@ -17,23 +17,23 @@ http://htmlpreview.github.io/?https://github.com/galecia/openlibrary-utils/blob/
 
 This program takes a TSV spreadsheet of authors/titles and searches OpenLibrary for the best matching record with full-text available on the Internet Archive, returning a TSV sheet of likely candidate eBooks.
 
-* input: ../data/SCCL-classics-ebook-candidates.tsv
-* output: ../data/SCCL-classics-edition-author-work.tsv
+* input: ../data/initial_candidates.tsv
+* output: ../data/openlib_result_list.tsv
 
 
 **olmarcdecorator.py**
 
 This program takes a TSV spreadsheet of OpenLibrary URLs that have corresponding ePub files on Internet Archive, retrieves the Internet Archive MARC record data, and inserts that data into a MRC file.
 
-* input: ../data/SCCL classics candidates - v3 selected.tsv
-* output: ../data/SCCLclassics.mrc
+* input: ../data/openlib_url_list.tsv
+* output: ../data/ebooks.mrc
 
 
 **downloadstats.py**
 
 This program takes a list of bit.ly URLs and retrieves monthly statistics of click-throughs.
 
-* input: ../data/SCCL-classic-eBooks-URLs-all.tsv
+* input: ../data/ebook_url_list.tsv
 * output: *<stdout>*
 
 **iaabbyqa.py**

@@ -12,7 +12,7 @@ bitly = file('../bitly_credentials.txt').readlines()
 BITLY_LOGIN = bitly[0].rstrip('\n').strip()
 BITLY_API_KEY = bitly[1].rstrip('\n').strip()
 BITLY_ACCESS_TOKEN = bitly[2].rstrip('\n').strip()
-FILE = '../data/SCCL-classic-eBooks-URLs-all.tsv'
+FILE = '../data/ebook_url_list.tsv'
 MONTHS = 6
 BITLY_TEMPLATE = 'https://api-ssl.bit.ly/v3/link/clicks?access_token=%s&link=%s&unit=month&units=%d&rollup=false'
 
@@ -32,7 +32,7 @@ def format_stats(stats):
     return '\t'.join([str(m[1]) for m in stats])
 
 def main():
-    print 'SCCL eBooks Bitly clicks for %d months ending on %s' % (MONTHS,time.strftime("%m/%d/%Y") )
+    print 'ORG eBooks Bitly clicks for %d months ending on %s' % (MONTHS,time.strftime("%m/%d/%Y") )
     # TODO: Get column headers
     with file(FILE) as url_list:
         url_list.readline() # discard header

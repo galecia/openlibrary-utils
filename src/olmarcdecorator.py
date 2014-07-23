@@ -209,10 +209,10 @@ def shorten_url(url):
         return short_url
     
 def main():
-#    with pymarc.MARCWriter(file(DATA_DIR+'SCCLclassics.mrc','wb')) as writer:
-    writer = pymarc.MARCWriter(codecs.open(DATA_DIR+'SCCLclassics.mrc','w','utf-8'))
+#    with pymarc.MARCWriter(file(DATA_DIR+'ebooks.mrc','wb')) as writer:
+    writer = pymarc.MARCWriter(codecs.open(DATA_DIR+'ebooks.mrc','w','utf-8'))
     count = written = 0
-    for line in codecs.open(DATA_DIR+'SCCL classics candidates - v3 selected.tsv', encoding='utf-8'):
+    for line in codecs.open(DATA_DIR+'openlib_url_list.tsv', encoding='utf-8'):
         count += 1
         if count < 2:
             continue # skip header line
