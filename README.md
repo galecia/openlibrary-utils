@@ -1,8 +1,7 @@
 openlibrary-utils
 =================
 
-Utilities for retrieving data from OpenLibrary as part of the "Free e-Book Project"
-
+The suite of programs retrieves bibliographic data and Open Library pages for a set of identified books, organizes these for selection based on quality, and makes appropriate changes to the MARC records based on the library's requirements. In addition, statistics about book downloads are obtained via simple integration with the bit.ly URL shortening service.
 
 ## Files
 
