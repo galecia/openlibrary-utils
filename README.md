@@ -3,11 +3,23 @@ openlibrary-utils
 
 The suite of programs retrieves bibliographic data and Open Library pages for a set of identified books, organizes these for selection based on quality, and makes appropriate changes to the MARC records based on the library's requirements. In addition, statistics about book downloads are obtained via simple integration with the bit.ly URL shortening service.
 
-## Documentation 
+## Documentation & Resources
 
-View librarian documentation here:
+1. Prepare list of candidate books
+  * Create new spreadsheet
+  * Populate two columns: author and title (you do not need to create a header row)
+  * Save as ../data/initial_candidates.tsv (tab-separated text file)
+2. Run olpublicdomain.py to create a list of matching OpenLibrary records
+3. TBD
+4. TBD
+5. 
+
+
+
+* View librarian-centric documentation here:
 
 http://htmlpreview.github.io/?https://github.com/galecia/openlibrary-utils/blob/master/docs/librarians.html
+
 
 ## Files
 
@@ -34,7 +46,7 @@ This program takes a TSV spreadsheet of OpenLibrary URLs that have corresponding
 This program takes a list of bit.ly URLs and retrieves monthly statistics of click-throughs.
 
 * input: ../data/ebook_url_list.tsv
-* output: *<stdout>*
+* output: *console: stdout*  (append ">> filename.tsv" to command to save)
 
 **iaabbyqa.py**
 
