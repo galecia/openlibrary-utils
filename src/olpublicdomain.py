@@ -181,9 +181,10 @@ def main():
             count += 1
             if count == 1:
                 continue # skip header line
-            title,author = line.rstrip('\n').split('\t')
-            title = title.split(':')[0].strip() # main title only
-            docs = search_open_library(author, title, 'eng')
+            if '\n' in line:
+                title,author = line.rstrip('\n').split('\t')
+                title = title.split(':')[0].strip() # main title only
+                docs = search_open_library(author, title, 'eng')
             print '\n%d OpenLibrary works found for %s by %s:' % (len(docs),title,author)
             '''
             if work_title and work_title != title:

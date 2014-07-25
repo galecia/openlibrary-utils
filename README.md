@@ -42,26 +42,20 @@ http://htmlpreview.github.io/?https://github.com/galecia/openlibrary-utils/blob/
 
 **olpublicdomain.py**
 
-This program takes a TSV spreadsheet of authors/titles and searches OpenLibrary for the best matching record with full-text available on the Internet Archive, returning a TSV sheet of likely candidate eBooks.
+This program takes a TSV spreadsheet of authors/titles and searches OpenLibrary for the best matching record with full-text available on the Internet Archive, returning a TSV sheet of likely candidate e-books.
 
 * input: ../data/candidate_seed.tsv
 * output: ../data/olpd_out.tsv
 
 
-**iaabbyqa.py**
-
-This program analyzes XML OCR results to determine OCR confidence statistics.
-
-* input: a ../cache/ folder containing XML record results output by _olpublicdomain.py_
-* output: TBD
-
-
 **olmarcdecorator.py**
 
-This program takes a TSV spreadsheet of OpenLibrary URLs that have corresponding ePub files on Internet Archive, retrieves the Internet Archive MARC record data, and inserts that data into a MRC file.
+This program takes a TSV spreadsheet of OpenLibrary URLs that have corresponding ePub files on Internet Archive, retrieves the Internet Archive MARC record data, and inserts that data into a MRC file.  In addition, e-book resource URLs are shortened using bit.ly for later statistical analysis.
 
-* input: ../data/openlib_url_list.tsv
-* output: ../data/ebooks.mrc
+* input:
+  * ../data/openlib_url_list.tsv
+  * ../data/ebooks.mrc
+* output: updated ebooks.mrc file
 
 
 **downloadstats.py**
@@ -70,6 +64,25 @@ This program takes a list of bit.ly URLs and retrieves monthly statistics of cli
 
 * input: ../data/ebook_url_list.tsv
 * output: *console: stdout*  (append ">> filename.tsv" to command to save)
+
+
+**iaabbyqa.py**
+
+This program analyzes XML OCR results to determine OCR confidence statistics.  _This program is incomplete._
+
+* input: a ../cache/ folder containing XML record results output by _olpublicdomain.py_
+* output: TBD
+
+### Other
+
+**bitly_credentials.txt**
+
+To use the bit.ly analytics functionality, you'll need to create a bit.ly account and enter your API credentials in this file in the following format:
+
+_bitly login_
+_bitly API key_
+_bitly access token_
+
 
 
 For more information, contact team@galecia.com.
