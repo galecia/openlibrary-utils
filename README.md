@@ -5,14 +5,25 @@ The suite of programs retrieves bibliographic data and Open Library pages for a 
 
 ## Documentation & Resources
 
+### Requirements
+
+* python 2
+* python modules:
+  * requests
+  * simplejson
+  * pymarc
+  * requests-cache
+  *
+
+
 1. Prepare list of candidate books
   * Create new spreadsheet
-  * Populate two columns: author and title (you do not need to create a header row)
+  * Populate two columns: TITLE and AUTHOR (you do not need to create a header row)
   * Save as ../data/initial_candidates.tsv (tab-separated text file)
 2. Run olpublicdomain.py to create a list of matching OpenLibrary records
 3. TBD
 4. TBD
-5. 
+5.
 
 
 
@@ -57,6 +68,3 @@ This program analyzes XML OCR results to determine OCR confidence statistics.
 
 
 For more information, contact team@galecia.com.
-
-
-
