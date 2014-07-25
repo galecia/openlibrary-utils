@@ -40,8 +40,8 @@ http://htmlpreview.github.io/?https://github.com/galecia/openlibrary-utils/blob/
 
 This program takes a TSV spreadsheet of authors/titles and searches OpenLibrary for the best matching record with full-text available on the Internet Archive, returning a TSV sheet of likely candidate eBooks.
 
-* input: ../data/olpd_out.tsv
-* output: ../data/candidate_seed.tsv
+* input: ../data/candidate_seed.tsv
+* output: ../data/olpd_out.tsv
 
 
 **olmarcdecorator.py**
