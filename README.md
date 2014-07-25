@@ -15,8 +15,8 @@ This project was supported by a Library Services and Technology Act (LSTA) grant
   * simplejson
   * pymarc
   * requests-cache
-  *
-  
+  * elementtree
+
 
 1. Prepare list of candidate books
   * Create new spreadsheet
