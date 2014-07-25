@@ -17,7 +17,7 @@ count = 0
 
 requests_cache.install_cache('openlibrary')
 session = requests_cache.CachedSession()
-    
+
 def make_throttle_hook(timeout=1.0):
     """
     Returns a response hook function which sleeps for `timeout` seconds if
@@ -61,7 +61,7 @@ def check_language(lang,doc):
         #marc_url = 'https://archive.org/download/%s/%s_marc.xml' % (aid,aid)
         # download MARC
         # check for 'English' in 240$l
-        
+
         print 'Unknown language ',doc['key']
         return False
 
@@ -84,7 +84,7 @@ def get_json(url):
         return edition
     else:
         print 'Failed to get JSON for %s - status code %d' % (url,response.status_code)
-        
+
 def get_ia_edition(iaid):
     '''Get JSON for an edition using its IA identifier.  Follows non-HTTP OpenLibrary redirect records '''
     edition_url = 'http://openlibrary.org/books/ia:%s.json' % iaid
@@ -98,7 +98,7 @@ def get_file(iaid,suffix,body=False):
     '''
     Test whether a file in the given format is available for an Internet Archive ID.
     Follows redirects if necessary.
-    
+
     If the "suffix" parameter doesn't contain a period, one will be prepended.
     This allows both "epub" and "_files.xml" style suffixes.
 
@@ -115,7 +115,7 @@ def get_file(iaid,suffix,body=False):
             epub = session.head(url)
         else:
             epub = session.get(url)
-        
+
         if epub.status_code == 302:
             url = epub.headers['location']
             #print 'Redirecting to ',url
@@ -148,12 +148,12 @@ def publicdomain(date):
         return int(date) < 1923
     except ValueError:
         return False
-    
+
 def get_files(ia):
     suffix = '_files.xml'
     filename = CACHE_DIR + ia + suffix
     root = None
-    
+
     # check cache
     try:
         with file(filename, 'r') as cachefile:
@@ -173,7 +173,7 @@ def find_file(files,suffix):
         for f in files:
             if f[-len(suffix):len(f)] == suffix:
                 return f
-        
+
 def main():
     with codecs.open(DATA_DIR+'olpd_out.tsv','w',encoding='utf-8') as output:
         count = 0
@@ -181,18 +181,18 @@ def main():
             count += 1
             if count == 1:
                 continue # skip header line
-            title,author,work_title = line.rstrip('\n').split('\t')
+            title,author = line.rstrip('\n').split('\t')
             title = title.split(':')[0].strip() # main title only
             docs = search_open_library(author, title, 'eng')
             print '\n%d OpenLibrary works found for %s by %s:' % (len(docs),title,author)
-            
+            '''
             if work_title and work_title != title:
                 before = len(docs)
                 docs = merge(docs,search_open_library(author, title, 'eng'))
                 added = len(docs) - before
                 if added:
                     print 'Added %d new search results' % added
- 
+            '''
             if not docs:
                 # Output a blank record so we know it got no matches
                 print 'No matches for %s by %s' % (title, author)
