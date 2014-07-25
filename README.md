@@ -19,7 +19,7 @@ The suite of programs retrieves bibliographic data and Open Library pages for a 
 1. Prepare list of candidate books
   * Create new spreadsheet
   * Populate two columns: TITLE and AUTHOR (you do not need to create a header row)
-  * Save as ../data/initial_candidates.tsv (tab-separated text file)
+  * Save as ../data/olpd_out.tsv (tab-separated text file)
 2. Run olpublicdomain.py to create a list of matching OpenLibrary records
 3. TBD
 4. TBD
@@ -40,8 +40,8 @@ http://htmlpreview.github.io/?https://github.com/galecia/openlibrary-utils/blob/
 
 This program takes a TSV spreadsheet of authors/titles and searches OpenLibrary for the best matching record with full-text available on the Internet Archive, returning a TSV sheet of likely candidate eBooks.
 
-* input: ../data/initial_candidates.tsv
-* output: ../data/openlib_result_list.tsv
+* input: ../data/olpd_out.tsv
+* output: ../data/candidate_seed.tsv
 
 
 **olmarcdecorator.py**
