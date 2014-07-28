@@ -3,6 +3,8 @@ openlibrary-utils
 
 The suite of programs retrieves bibliographic data and Open Library pages for a set of identified books, organizes these for selection based on quality, and makes appropriate changes to the MARC records based on the library's requirements. In addition, statistics about book downloads are obtained via simple integration with the bit.ly URL shortening service.
 
+_Note: this code is provided as a starting point; familiarity with python and the MARC file format will be required to customize and deploy in a production environment._
+
 This project was supported by a Library Services and Technology Act (LSTA) granted to Santa Clara County Library District (SCCLD) from the California State Library to fund the exploration of the effect of including public domain e-books in the library's catalog for discovery by users, and to observe whether e-book use would increase for the selected books. The project was conducted between July 2013 and June 2014.
 
 ## Documentation & Resources
@@ -22,16 +24,13 @@ This project was supported by a Library Services and Technology Act (LSTA) grant
 1. Prepare list of candidate books.
   * Create new spreadsheet with two columns, TITLE and AUTHOR, respectively.
   * Populate the spreadsheet with potential e-Books that you're searching for.
-  * Save as ../data/candidate_seed.tsv (tab-separated text file).
+  * Save as ./data/candidate_seed.tsv (tab-separated text file).
 2. Run olpublicdomain.py (within /src/ folder) to create a list of matching OpenLibrary records.
-  * The /data/ folder should now contain a file called olpd_out.tsv containing the official author record, title record, publication date, and OpenLibrary URL for each work.
-  * The /cache/ folder should now contain XML records for each matching record, which will later allow the highest-quality version of each work to be selected based on OCR quality analysis (depends on completion of iaabbyqa.py program).
+  * The ./data/ folder should now contain a file called olpd_out.tsv containing the official author record, title record, publication date, and OpenLibrary URL for each work.
+  * The ./cache/ folder should now contain XML records for each matching record, which will later allow the highest-quality version of each work to be selected based on OCR quality analysis (depends on completion of iaabbyqa.py program).
 3. Populate your MARC file with the eBook URLs
-  * Create a file of OpenLibrary URLs from /data/olpd_out.tsv.  This file should consist solely of URLs, one per line.  Save this file as /data/openlib_url_list.tsv.
-  * Save the MARC file to be updated as /data/ebooks.mrc.
-  * Run /src/olmarcdecorator.py to update the MARC file with information retrieved from OpenLibrary's MARCXML record for each title.
-
-
+  * Create a file of OpenLibrary URLs from ./data/olpd_out.tsv.  This file should consist solely of URLs, one per line.  Save this file as ./data/openlib_url_list.tsv.
+  * Run ./src/olmarcdecorator.py to generate a MARC file with information retrieved from OpenLibrary's MARCXML record for each title.  The new MARC file will be saved at ./data/ebooks.mrc.
 
 
 * View librarian-centric documentation here:
@@ -41,7 +40,7 @@ http://htmlpreview.github.io/?https://github.com/galecia/openlibrary-utils/blob/
 
 ## Files
 
-### /src
+### ./src
 
 **olpublicdomain.py**
 
@@ -55,10 +54,8 @@ This program takes a TSV spreadsheet of authors/titles and searches OpenLibrary 
 
 This program takes a TSV spreadsheet of OpenLibrary URLs that have corresponding ePub files on Internet Archive, retrieves the Internet Archive MARC record data, and inserts that data into a MRC file.  In addition, e-book resource URLs are shortened using bit.ly for later statistical analysis.
 
-* input:
-  * ../data/openlib_url_list.tsv
-  * ../data/ebooks.mrc
-* output: updated ebooks.mrc file
+* input: ../data/openlib_url_list.tsv
+* output: ../data/ebooks.mrc
 
 
 **downloadstats.py**
