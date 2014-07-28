@@ -17,6 +17,7 @@ This project was supported by a Library Services and Technology Act (LSTA) grant
   * requests-cache
   * elementtree
 
+### How-To
 
 1. Prepare list of candidate books.
   * Create new spreadsheet with two columns, TITLE and AUTHOR, respectively.
@@ -25,9 +26,11 @@ This project was supported by a Library Services and Technology Act (LSTA) grant
 2. Run olpublicdomain.py (within /src/ folder) to create a list of matching OpenLibrary records.
   * The /data/ folder should now contain a file called olpd_out.tsv containing the official author record, title record, publication date, and OpenLibrary URL for each work.
   * The /cache/ folder should now contain XML records for each matching record, which will later allow the highest-quality version of each work to be selected based on OCR quality analysis (depends on completion of iaabbyqa.py program).
-3. Edit the olpd_out.tsv file to include only the specific OL editions you wish to include in your catalog.
-4. TBD
-5.
+3. Populate your MARC file with the eBook URLs
+  * Create a file of OpenLibrary URLs from /data/olpd_out.tsv.  This file should consist solely of URLs, one per line.  Save this file as /data/openlib_url_list.tsv.
+  * Save the MARC file to be updated as /data/ebooks.mrc.
+  * Run /src/olmarcdecorator.py to update the MARC file with information retrieved from OpenLibrary's MARCXML record for each title.
+
 
 
 
@@ -75,14 +78,14 @@ This program analyzes XML OCR results to determine OCR confidence statistics.  _
 
 ### Other
 
-**bitly_credentials.txt**
+**../bitly_credentials.txt**
 
 To use the bit.ly analytics functionality, you'll need to create a bit.ly account and enter your API credentials in this file in the following format:
-
+```
 _bitly login_
 _bitly API key_
 _bitly access token_
-
+```
 
 
 For more information, contact team@galecia.com.

@@ -1,6 +1,6 @@
 '''
-Given a list of OpenLibrary URLs for books which have ePubs available on Internet Archive,
-download the IA MARC XML file and update it with our desired info.
+Given a list of OpenLibrary URLs for books which have ePubs available on Internet Archive
+and a custom MRC file, download the IA MARC XML file and update our MRC file with the desired info.
 '''
 
 import codecs
@@ -48,7 +48,7 @@ def get_json(url):
         return edition
     else:
         print 'Failed to get JSON for %s - status code %d' % (url,response.status_code)
-        
+
 def get_ia_edition(iaid):
     '''Get JSON for an edition using its IA identifier.  Follows non-HTTP OpenLibrary redirect records '''
     edition_url = 'http://openlibrary.org/books/ia:%s.json' % iaid
@@ -62,7 +62,7 @@ def get_file(iaid,suffix,body=False):
     '''
     Test whether a file in the given format is available for an Internet Archive ID.
     Follows redirects if necessary.
-    
+
     If the "suffix" parameter doesn't contain a period, one will be prepended.
     This allows both "epub" and "_files.xml" style suffixes.
 
@@ -79,7 +79,7 @@ def get_file(iaid,suffix,body=False):
             epub = session.head(url)
         else:
             epub = session.get(url)
-        
+
         if epub.status_code == 302:
             url = epub.headers['location']
             #print 'Redirecting to ',url
@@ -99,12 +99,12 @@ def rate_wait(time):
     last = now()
     while True:
         yield()
-    
+
 def get_files(ia):
     suffix = '_files.xml'
     filename = CACHE_DIR + ia + suffix
     root = None
-    
+
     # check cache
     try:
         with file(filename, 'r') as cachefile:
@@ -138,12 +138,12 @@ def add_url(record, url,tag):
     # Amazon will return 405 for a HEAD verb, so just skip the check
     # it's a service which should always be available anyway
     skip_check = url.find("amazon.com") > 0
-    
+
     # For our initial project, all URLs except one succeeded and that was hand-verified
     # to be an intermittent error, so we're going to skip this check for now because  its
     # causing more problems than it's designed to prevent due to IA instability
     skip_check = True
-    
+
     if not skip_check:
         response = session.head(url)
         if response.status_code == 302:
@@ -168,7 +168,7 @@ def update_marc_record(record,iaid,olurl):
     for code in FIELDS_REMOVED:
         for field in record.get_fields(code):
             record.remove_field(field)
-    
+
     add_url(record, "https://archive.org/download/%s/%s.epub" % (iaid,iaid),"EPub")
     add_url(record, "https://www.amazon.com/gp/digital/fiona/web-to-kindle?clientid=IA&itemid=%s&docid=%s" % (iaid, iaid),"Kindle")
     add_url(record, olurl,"multiple formats")
@@ -207,7 +207,7 @@ def shorten_url(url):
         short_url = json['data']['url']
         print url,'\t',short_url
         return short_url
-    
+
 def main():
 #    with pymarc.MARCWriter(file(DATA_DIR+'ebooks.mrc','wb')) as writer:
     writer = pymarc.MARCWriter(codecs.open(DATA_DIR+'ebooks.mrc','w','utf-8'))
@@ -216,7 +216,8 @@ def main():
         count += 1
         if count < 2:
             continue # skip header line
-        url = line.rstrip('\n').split('\t')[6].replace('https:','http:')
+        #url = line.rstrip('\n').split('\t')[6].replace('https:','http:')
+        url = line.rstrip('\n').replace('https:','http:')
         print '  ',url
         jsonurl = '/'.join(url.split('/')[0:5])+'.json'
         json = get_json(jsonurl)
