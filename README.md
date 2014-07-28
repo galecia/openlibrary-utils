@@ -18,14 +18,14 @@ This project was supported by a Library Services and Technology Act (LSTA) grant
   * elementtree
 
 
-1. Prepare list of candidate books
-  * Create new spreadsheet with two columns, TITLE and AUTHOR, respectively
-  * Populate the spreadsheet with potential e-Books that you're searching for
-  * Save as ../data/candidate_seed.tsv (tab-separated text file)
-2. Run olpublicdomain.py (within /src/ folder) to create a list of matching OpenLibrary records
+1. Prepare list of candidate books.
+  * Create new spreadsheet with two columns, TITLE and AUTHOR, respectively.
+  * Populate the spreadsheet with potential e-Books that you're searching for.
+  * Save as ../data/candidate_seed.tsv (tab-separated text file).
+2. Run olpublicdomain.py (within /src/ folder) to create a list of matching OpenLibrary records.
   * The /data/ folder should now contain a file called olpd_out.tsv containing the official author record, title record, publication date, and OpenLibrary URL for each work.
-  * The /cache/ folder should now contain XML records for each matching record, which will later allow the highest-quality version of each work to be selected based on OCR quality analysis
-3. TBD
+  * The /cache/ folder should now contain XML records for each matching record, which will later allow the highest-quality version of each work to be selected based on OCR quality analysis (depends on completion of iaabbyqa.py program).
+3. Edit the olpd_out.tsv file to include only the specific OL editions you wish to include in your catalog.
 4. TBD
 5.
 
