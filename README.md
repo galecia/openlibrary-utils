@@ -35,7 +35,7 @@ This project was supported by a Library Services and Technology Act (LSTA) grant
 
 * View librarian-centric documentation here:
 
-http://htmlpreview.github.io/?https://github.com/galecia/openlibrary-utils/blob/master/docs/librarians.html
+http://galecia.github.io/openlibrary-utils/
 
 
 ## Files
@@ -84,5 +84,9 @@ _bitly API key_
 _bitly access token_
 ```
 
+## Presentations
+
+###Radicalize Your Catalog with Ebooks Your Patrons Can Keep Forever
+Presentation at California Library Association Annual Conference, November 2014 by Carol Frost, Lori Ayre, Megan Wong, Heekyung Wilhelmi.  Available on slideshere at http://www.slideshare.net/loriayre/radicalize-your-library-catalog-with-ebooks-your-patrons-can-keep-forever.
 
 For more information, contact team@galecia.com.
