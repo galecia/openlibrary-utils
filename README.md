@@ -87,6 +87,6 @@ _bitly access token_
 ## Presentations
 
 ###Radicalize Your Catalog with Ebooks Your Patrons Can Keep Forever
-Presentation at California Library Association Annual Conference, November 2014 by Carol Frost, Lori Ayre, Megan Wong, Heekyung Wilhelmi.  Available on slideshere at http://www.slideshare.net/loriayre/radicalize-your-library-catalog-with-ebooks-your-patrons-can-keep-forever.
+Presentation at California Library Association Annual Conference, November 2014 by Carol Frost, Lori Ayre, Megan Wong, Heekyung Wilhelmi.  Available on Slideshare at http://www.slideshare.net/loriayre/radicalize-your-library-catalog-with-ebooks-your-patrons-can-keep-forever.
 
 For more information, contact team@galecia.com.
