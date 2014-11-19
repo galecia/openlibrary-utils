@@ -75,6 +75,10 @@ This program analyzes XML OCR results to determine OCR confidence statistics.  _
 
 ### Other
 
+**data/SCCLclassics_feb.mrc**
+
+Sample MARC file for re-use.
+
 **../bitly_credentials.txt**
 
 To use the bit.ly analytics functionality, you'll need to create a bit.ly account and enter your API credentials in this file in the following format:
