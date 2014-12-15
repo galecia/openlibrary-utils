@@ -76,9 +76,11 @@ This program analyzes XML OCR results to determine OCR confidence statistics.  _
 ### Other
 
 **data/SCCLclassicsall.mrc**
+
 Final Edited SCCL MRC file #1.
 
 **data/SCCLclassics-phase2.mrc**
+
 Final Edited SCCL MRC file #2.
 
 **data/SCCLclassics_feb.mrc**
