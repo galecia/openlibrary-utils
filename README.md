@@ -75,9 +75,15 @@ This program analyzes XML OCR results to determine OCR confidence statistics.  _
 
 ### Other
 
+**data/SCCLclassicsall.mrc**
+Final Edited SCCL MRC file #1.
+
+**SCCLclassics-phase2.mrc**
+Final Edited SCCL MRC file #2.
+
 **data/SCCLclassics_feb.mrc**
 
-Sample MARC file for re-use.
+Deprecated example MARC file for re-use.
 
 **../bitly_credentials.txt**
 
